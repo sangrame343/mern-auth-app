@@ -2,6 +2,7 @@ import Express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRoutes from "./routes/user.route.js";
+import authRoutes from "./routes/auth.route.js";
 dotenv.config();
 //password:sangramr343,databasename:mern-auth
 mongoose
@@ -9,6 +10,7 @@ mongoose
   .then(() => console.log("connected to db"))
   .catch((err) => console.log(err));
 const app = Express();
+app.use(Express.json());
 
 app.listen(3000, () => console.log("server started on port 3000 !"));
 
@@ -16,3 +18,4 @@ app.listen(3000, () => console.log("server started on port 3000 !"));
 //   res.json({ message: "API is working fine " });
 // });
 app.use("/api/user", userRoutes);
+app.use("/api/auth", authRoutes);
