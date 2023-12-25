@@ -1,10 +1,7 @@
 //custom error handler
-export const errorHandler = (err, req, res, next) => {
-  const status = err.status || 500;
-  const message = err.message || "Something went wrong";
-  return res.status(status).json({
-    success: false,
-    status,
-    message,
-  });
+export const errorHandler = (statuscode, message) => {
+  const error = new Error(message);
+  error.status = statuscode;
+  error.message = message;
+  return error;
 };
