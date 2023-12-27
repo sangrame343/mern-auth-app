@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import userRoutes from "./routes/user.route.js";
 import authRoutes from "./routes/auth.route.js";
+import cookieParser from "cookie-parser";
 dotenv.config();
 //password:sangramr343,databasename:mern-auth
 mongoose
@@ -11,7 +12,7 @@ mongoose
   .catch((err) => console.log(err));
 const app = Express();
 app.use(Express.json());
-
+app.use(cookieParser());
 app.listen(3000, () => console.log("server started on port 3000 !"));
 
 // app.get("/", (req, res) => {
