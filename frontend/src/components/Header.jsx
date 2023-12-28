@@ -9,7 +9,18 @@ export default function Header() {
         <Link to="/">
           <h1 className="text-3xl text-white p-4">Auth-App</h1>
         </Link>
-
+        <form
+          action=""
+          className="bg-slate-100 p-3 rounded-lg flex items-center"
+        >
+          <input
+            type="text"
+            name="search"
+            id="search"
+            placeholder="Search"
+            className="bg-transparent focus:outline-none  w-24 sm:w-164"
+          />
+        </form>
         <ul className="flex gap-4 text-white">
           <Link to="/">
             <li>Home</li>
